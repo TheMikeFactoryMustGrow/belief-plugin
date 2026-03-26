@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BELIEF System Architecture</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 40px 20px 20px; }
+
+  h1 { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 4px; color: #f8fafc; }
+  .subtitle { text-align: center; font-size: 14px; color: #94a3b8; margin-bottom: 6px; }
+  .github-link { text-align: center; margin-bottom: 32px; }
+  .github-link a { color: #60a5fa; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border: 1px solid #1e40af; border-radius: 8px; transition: all 0.2s; }
+  .github-link a:hover { background: #172554; border-color: #3b82f6; }
+  .github-link svg { width: 16px; height: 16px; fill: #60a5fa; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #475569; margin-bottom: 12px; }
+
+  .workflow { margin-bottom: 28px; }
+  .workflow-strip { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .wf-phase-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #475569; text-align: center; margin-bottom: 4px; }
+  .wf-phase { display: flex; flex-direction: column; align-items: center; }
+  .wf-phase-steps { display: flex; align-items: center; gap: 0; }
+  .wf-step { background: #172554; border: 1px solid #1e40af; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: #93c5fd; cursor: pointer; transition: all 0.2s; }
+  .wf-step:hover { background: #1e3a8a; border-color: #3b82f6; }
+  .wf-step.active { background: #1e3a8a; border-color: #60a5fa; box-shadow: 0 0 12px rgba(96,165,250,0.3); }
+  .wf-step.phase-session { background: #2e1065; border-color: #7c3aed; color: #c4b5fd; }
+  .wf-step.phase-session:hover { background: #3b0764; border-color: #8b5cf6; }
+  .wf-arrow { color: #334155; font-size: 18px; padding: 0 4px; user-select: none; }
+  .wf-phase-divider { width: 1px; height: 40px; background: #334155; margin: 0 12px; align-self: flex-end; }
+
+  .kb-viz { margin-bottom: 28px; }
+  .kb-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; }
+  .kb-clients { display: flex; flex-direction: column; gap: 8px; }
+  .kb-file { background: #0f172a; border: 2px solid #b45309; border-radius: 10px; padding: 12px 16px; cursor: pointer; transition: all 0.3s; position: relative; }
+  .kb-file:hover { border-color: #f59e0b; }
+  .kb-file.highlight { border-color: #fbbf24; background: #1c1917; box-shadow: 0 0 16px rgba(251,191,36,0.2); }
+  .kb-file-icon { font-size: 20px; margin-bottom: 4px; }
+  .kb-file-name { font-size: 13px; font-weight: 600; color: #fbbf24; }
+  .kb-file-sub { font-size: 10px; color: #92400e; margin-top: 2px; }
+  .kb-file-ops { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+  .kb-op { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 600; opacity: 0.4; transition: all 0.3s; }
+  .kb-op.visible { opacity: 1; }
+  .kb-op.op-read { background: #172554; color: #93c5fd; }
+  .kb-op.op-write { background: #422006; color: #fcd34d; }
+  .kb-op.op-create { background: #065f46; color: #6ee7b7; }
+
+  .kb-bridge { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; min-height: 200px; }
+  .bridge-line { width: 2px; flex: 1; background: linear-gradient(to bottom, transparent, #fbbf24, transparent); min-height: 30px; }
+  .bridge-label { font-size: 10px; color: #92400e; writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 1px; font-weight: 600; padding: 8px 0; }
+  .bridge-arrow { color: #fbbf24; font-size: 14px; }
+
+  .kb-cross-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; }
+  .kb-cross { background: #0f172a; border: 2px solid #b45309; border-radius: 14px; padding: 20px 24px; text-align: center; cursor: pointer; transition: all 0.3s; width: 100%; max-width: 280px; }
+  .kb-cross:hover { border-color: #f59e0b; }
+  .kb-cross.highlight { border-color: #fbbf24; background: #1c1917; box-shadow: 0 0 16px rgba(251,191,36,0.2); }
+  .kb-cross-icon { font-size: 28px; margin-bottom: 4px; }
+  .kb-cross-name { font-size: 15px; font-weight: 700; color: #fbbf24; }
+  .kb-cross-sub { font-size: 11px; color: #92400e; margin-top: 2px; }
+  .kb-cross-desc { font-size: 11px; color: #64748b; margin-top: 8px; line-height: 1.4; }
+  .kb-cross .kb-file-ops { justify-content: center; }
+
+  .architecture { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  .layer { background: #1e293b; border-radius: 16px; padding: 20px; border: 1px solid #334155; }
+  .layer-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+  .layer-desc { font-size: 12px; color: #64748b; margin-bottom: 16px; }
+  .commands .layer-header { color: #60a5fa; }
+  .skills .layer-header { color: #a78bfa; }
+
+  .cmd { background: #0f172a; border: 1px solid #1e40af; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; position: relative; display: flex; align-items: center; gap: 12px; }
+  .cmd:hover, .cmd.active { border-color: #3b82f6; background: #172554; }
+  .cmd-name { font-size: 13px; font-weight: 600; color: #93c5fd; font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; }
+  .cmd-role { font-size: 11px; color: #64748b; }
+  .cmd-badge { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-create { background: #065f46; color: #6ee7b7; }
+  .badge-rw { background: #78350f; color: #fcd34d; }
+  .badge-read { background: #1e3a5f; color: #93c5fd; }
+  .badge-scan { background: #3b0764; color: #c4b5fd; }
+  .badge-write { background: #7f1d1d; color: #fca5a5; }
+
+  .cmd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .skill { background: #0f172a; border: 1px solid #6d28d9; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
+  .skill:hover, .skill.active { border-color: #8b5cf6; background: #1e1033; }
+  .skill-name { font-size: 13px; font-weight: 600; color: #c4b5fd; }
+  .skill-method { font-size: 11px; color: #7c3aed; margin-top: 2px; }
+  .skill-desc { font-size: 11px; color: #64748b; margin-top: 4px; line-height: 1.4; }
+
+  .detail-overlay { position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; border-top: 2px solid #334155; padding: 20px 24px 24px; z-index: 100; transform: translateY(100%); transition: transform 0.3s ease; box-shadow: 0 -8px 32px rgba(0,0,0,0.5); max-height: 45vh; overflow-y: auto; }
+  .detail-overlay.open { transform: translateY(0); }
+  .detail-close { position: absolute; top: 12px; right: 16px; background: none; border: 1px solid #475569; color: #94a3b8; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .detail-close:hover { background: #334155; color: #f8fafc; }
+  .detail-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .detail-main { }
+  .detail-title { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .detail-type { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .detail-body { font-size: 14px; color: #cbd5e1; line-height: 1.7; }
+  .detail-body strong { color: #f8fafc; }
+  .detail-flows { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .flow-section { }
+  .flow-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 6px; }
+  .flow-items { display: flex; flex-wrap: wrap; gap: 6px; }
+  .flow-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 500; }
+  .flow-tag.reads { background: #172554; color: #93c5fd; }
+  .flow-tag.writes { background: #422006; color: #fcd34d; }
+  .flow-tag.skill-tag { background: #2e1065; color: #c4b5fd; }
+
+  .bottom-spacer { height: 20px; transition: height 0.3s ease; }
+  body.overlay-open .bottom-spacer { height: 48vh; }
+
+  @media (max-width: 900px) {
+    .architecture { grid-template-columns: 1fr; }
+    .kb-grid { grid-template-columns: 1fr; }
+    .kb-bridge { flex-direction: row; min-height: auto; padding: 12px 0; }
+    .bridge-line { width: auto; height: 2px; min-height: auto; flex: 1; background: linear-gradient(to right, transparent, #fbbf24, transparent); }
+    .bridge-label { writing-mode: horizontal-tb; }
+    .detail-inner { grid-template-columns: 1fr; }
+    .cmd-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>BELIEF System Architecture</h1>
+  <p class="subtitle">Brand strategy plugin — Commands, Knowledge Bases, and Skills</p>
+  <div class="github-link">
+    <a href="https://github.com/TheMikeFactoryMustGrow/belief-plugin" target="_blank">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      TheMikeFactoryMustGrow/belief-plugin
+    </a>
+  </div>
+
+  <div class="workflow">
+    <div class="section-label" style="text-align:center;">Client Workflow</div>
+    <div class="workflow-strip">
+      <div class="wf-phase">
+        <div class="wf-phase-label">Pre-Session</div>
+        <div class="wf-phase-steps">
+          <div class="wf-step" onclick="selectItem('intake')" id="wf-intake">intake</div>
+          <span class="wf-arrow">&rarr;</span>
+          <div class="wf-step" onclick="selectItem('analyze')" id="wf-analyze">analyze</div>
+          <span class="wf-arrow">&rarr;</span>
+          <div class="wf-step" onclick="selectItem('research')" id="wf-research">research</div>
+          <span class="wf-arrow">&rarr;</span>
+          <div class="wf-step" onclick="selectItem('prep')" id="wf-prep">prep</div>
+        </div>
+      </div>
+      <div class="wf-phase-divider"></div>
+      <div class="wf-phase">
+        <div class="wf-phase-label">Live Session</div>
+        <div class="wf-phase-steps">
+          <div class="wf-step phase-session" style="cursor:default;">BELIEF Session</div>
+        </div>
+      </div>
+      <div class="wf-phase-divider"></div>
+      <div class="wf-phase">
+        <div class="wf-phase-label">Post-Session</div>
+        <div class="wf-phase-steps">
+          <div class="wf-step" onclick="selectItem('synthesize')" id="wf-synthesize">synthesize</div>
+          <span class="wf-arrow">&rarr;</span>
+          <div class="wf-step" onclick="selectItem('distill')" id="wf-distill">distill</div>
+          <span class="wf-arrow">&rarr;</span>
+          <div class="wf-step" onclick="selectItem('learn')" id="wf-learn">learn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kb-viz">
+    <div class="section-label">Knowledge Base Files</div>
+    <div class="kb-grid">
+      <div class="kb-clients">
+        <div class="kb-file" id="kb-clientA" onclick="selectItem('clientKB')">
+          <div class="kb-file-name">Acme Corp KB</div>
+          <div class="kb-file-sub">Google Doc &middot; Active engagement</div>
+          <div class="kb-file-ops">
+            <span class="kb-op op-create" data-cmd="intake">intake creates</span>
+            <span class="kb-op op-write" data-cmd="analyze">analyze writes</span>
+            <span class="kb-op op-write" data-cmd="research">research writes</span>
+            <span class="kb-op op-read" data-cmd="prep">prep reads</span>
+            <span class="kb-op op-write" data-cmd="synthesize">synthesize writes</span>
+            <span class="kb-op op-write" data-cmd="distill">distill writes</span>
+            <span class="kb-op op-read" data-cmd="learn">learn reads</span>
+          </div>
+        </div>
+        <div class="kb-file" id="kb-clientB" onclick="selectItem('clientKB')">
+          <div class="kb-file-name">Riverside Health KB</div>
+          <div class="kb-file-sub">Google Doc &middot; Active engagement</div>
+          <div class="kb-file-ops">
+            <span class="kb-op op-create" data-cmd="intake">intake creates</span>
+            <span class="kb-op op-write" data-cmd="analyze">analyze writes</span>
+            <span class="kb-op op-write" data-cmd="research">research writes</span>
+            <span class="kb-op op-read" data-cmd="prep">prep reads</span>
+            <span class="kb-op op-write" data-cmd="synthesize">synthesize writes</span>
+            <span class="kb-op op-write" data-cmd="distill">distill writes</span>
+            <span class="kb-op op-read" data-cmd="learn">learn reads</span>
+          </div>
+        </div>
+        <div class="kb-file" id="kb-clientC" onclick="selectItem('clientKB')" style="opacity:0.5;">
+          <div class="kb-file-name">Future Client KB</div>
+          <div class="kb-file-sub">Google Doc &middot; Created at intake</div>
+          <div class="kb-file-ops">
+            <span class="kb-op op-create" data-cmd="intake">intake creates</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kb-bridge">
+        <div class="bridge-arrow">&larr;</div>
+        <div class="bridge-line"></div>
+        <div class="bridge-label">/belief learn</div>
+        <div class="bridge-line"></div>
+        <div class="bridge-arrow">&rarr;</div>
+      </div>
+
+      <div class="kb-cross-wrapper">
+        <div class="kb-cross" id="kb-cross" onclick="selectItem('crossKB')">
+          <div class="kb-cross-name">Cross-Client KB</div>
+          <div class="kb-cross-sub">Shared Drive &middot; Institutional memory</div>
+          <div class="kb-cross-desc">Patterns from every completed engagement compound here. Gets smarter with each /belief learn.</div>
+          <div class="kb-file-ops" style="margin-top:10px;">
+            <span class="kb-op op-write" data-cmd="learn">learn writes</span>
+            <span class="kb-op op-read" data-cmd="prep">prep reads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="architecture">
+    <div class="layer commands">
+      <div class="layer-header">Commands</div>
+      <div class="layer-desc">Slash commands that drive the workflow</div>
+      <div class="cmd-grid">
+        <div class="cmd" id="card-intake" onclick="selectItem('intake')">
+          <div><div class="cmd-name">/belief intake</div><div class="cmd-role">Onboard a new client</div></div>
+          <span class="cmd-badge badge-create">CREATES</span>
+        </div>
+        <div class="cmd" id="card-analyze" onclick="selectItem('analyze')">
+          <div><div class="cmd-name">/belief analyze</div><div class="cmd-role">Deep-dive on data</div></div>
+          <span class="cmd-badge badge-rw">R/W</span>
+        </div>
+        <div class="cmd" id="card-research" onclick="selectItem('research')">
+          <div><div class="cmd-name">/belief research</div><div class="cmd-role">Market research</div></div>
+          <span class="cmd-badge badge-rw">R/W</span>
+        </div>
+        <div class="cmd" id="card-prep" onclick="selectItem('prep')">
+          <div><div class="cmd-name">/belief prep</div><div class="cmd-role">Session playbook</div></div>
+          <span class="cmd-badge badge-read">READS</span>
+        </div>
+        <div class="cmd" id="card-synthesize" onclick="selectItem('synthesize')">
+          <div><div class="cmd-name">/belief synthesize</div><div class="cmd-role">Combine findings</div></div>
+          <span class="cmd-badge badge-rw">R/W</span>
+        </div>
+        <div class="cmd" id="card-distill" onclick="selectItem('distill')">
+          <div><div class="cmd-name">/belief distill</div><div class="cmd-role">Brand essence</div></div>
+          <span class="cmd-badge badge-rw">R/W</span>
+        </div>
+        <div class="cmd" id="card-status" onclick="selectItem('status')">
+          <div><div class="cmd-name">/belief status</div><div class="cmd-role">Check progress</div></div>
+          <span class="cmd-badge badge-scan">SCANS</span>
+        </div>
+        <div class="cmd" id="card-learn" onclick="selectItem('learn')">
+          <div><div class="cmd-name">/belief learn</div><div class="cmd-role">Cross-client patterns</div></div>
+          <span class="cmd-badge badge-write">CROSS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer skills">
+      <div class="layer-header">Skills</div>
+      <div class="layer-desc">Methodologies that inform how commands think</div>
+      <div class="skill" id="card-kb_skill" onclick="selectItem('kb_skill')">
+        <div class="skill-name">knowledge-base</div>
+        <div class="skill-method">Schema & conventions</div>
+        <div class="skill-desc">Defines KB structure. Ensures intake and analyze write consistently.</div>
+      </div>
+      <div class="skill" id="card-brand" onclick="selectItem('brand')">
+        <div class="skill-name">brand-discovery</div>
+        <div class="skill-method">BELIEF methodology</div>
+        <div class="skill-desc">Core framework. Informs prep, distill, and learn.</div>
+      </div>
+      <div class="skill" id="card-questions" onclick="selectItem('questions')">
+        <div class="skill-name">question-generation</div>
+        <div class="skill-method">Socratic method</div>
+        <div class="skill-desc">Generates probing questions for client sessions via prep.</div>
+      </div>
+      <div class="skill" id="card-research_skill" onclick="selectItem('research_skill')">
+        <div class="skill-name">research-methodology</div>
+        <div class="skill-method">7-area framework</div>
+        <div class="skill-desc">Structured external research across 7 domains.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-spacer"></div>
+</div>
+
+<div class="detail-overlay" id="detail-overlay">
+  <button class="detail-close" onclick="closeDetail()" title="Close">&times;</button>
+  <div class="detail-inner">
+    <div class="detail-main">
+      <div class="detail-title" id="det-title"></div>
+      <div class="detail-type" id="det-type"></div>
+      <div class="detail-body" id="det-body"></div>
+    </div>
+    <div class="detail-flows" id="det-flows"></div>
+  </div>
+</div>
+
+<script>
+const data = {
+  intake: {
+    title: '/belief intake',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'intake',
+    body: '<strong>Onboards a new client</strong> — creates their Per-Client KB (Google Doc) with the standard schema. This is always the first command run. It creates the client folder on the WE Marketing Shared Drive and initializes the KB document.',
+    writes: ['Per-Client KB (creates)'],
+    reads: [],
+    skills: ['knowledge-base'],
+    kbOps: { client: 'create', cross: null }
+  },
+  analyze: {
+    title: '/belief analyze',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'analyze',
+    body: '<strong>Deep-dives on captured data</strong> — reads the client KB, identifies themes, gaps, and contradictions in what\'s been captured so far, then writes updated analysis back. Run iteratively as new information comes in. Kathryn\'s analysis enriches the KB for everyone.',
+    writes: ['Per-Client KB'],
+    reads: ['Per-Client KB', 'Drive folder'],
+    skills: ['knowledge-base'],
+    kbOps: { client: 'rw', cross: null }
+  },
+  research: {
+    title: '/belief research',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'research',
+    body: '<strong>External market and competitive research</strong> — reads client context from the KB, then conducts structured research using the 7-area framework. Stacy\'s research findings are written back to the KB, building on whatever analyze already surfaced.',
+    writes: ['Per-Client KB'],
+    reads: ['Per-Client KB', 'Web'],
+    skills: ['research-methodology'],
+    kbOps: { client: 'rw', cross: null }
+  },
+  prep: {
+    title: '/belief prep',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'prep',
+    body: '<strong>Prepares for client sessions</strong> — the <em>only</em> command that reads from <em>both</em> knowledge bases. Pulls client-specific context plus cross-client patterns from past engagements to design a Facilitator\'s Playbook with Socratic questions. This is where the compound learning pays off.',
+    writes: ['Playbook (new doc)'],
+    reads: ['Per-Client KB', 'Cross-Client KB'],
+    skills: ['brand-discovery', 'question-generation'],
+    kbOps: { client: 'read', cross: 'read' }
+  },
+  synthesize: {
+    title: '/belief synthesize',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'synthesize',
+    body: '<strong>Combines all findings</strong> — reads everything in the client KB (intake, analysis, research, session notes) and produces a unified synthesis. The bridge between raw data and brand essence. Run after the live session.',
+    writes: ['Per-Client KB'],
+    reads: ['Per-Client KB', 'Session notes'],
+    skills: ['brand-discovery'],
+    kbOps: { client: 'rw', cross: null }
+  },
+  distill: {
+    title: '/belief distill',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'distill',
+    body: '<strong>Extracts the brand essence</strong> — the culmination of the process. Reads the full client KB and applies the BELIEF methodology to produce the Brand Foundation document with essence statements, positioning, and strategy.',
+    writes: ['Per-Client KB', 'Foundation doc'],
+    reads: ['Per-Client KB (full)'],
+    skills: ['brand-discovery'],
+    kbOps: { client: 'rw', cross: null }
+  },
+  status: {
+    title: '/belief status',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'status',
+    body: '<strong>Checks progress</strong> — scans across all client KBs to report on which workflow stages are complete, what\'s missing, and what should happen next. A dashboard view. Run anytime.',
+    writes: [],
+    reads: ['All Client KBs (scans)'],
+    skills: ['knowledge-base'],
+    kbOps: { client: 'scan', cross: null }
+  },
+  learn: {
+    title: '/belief learn',
+    type: 'Command',
+    typeColor: '#60a5fa',
+    cmd: 'learn',
+    body: '<strong>Captures cross-client patterns</strong> — reads a client KB and extracts reusable insights: which questions landed, what industry patterns emerged, what process improvements worked. The <em>only</em> command that writes to the Cross-Client KB. This is how institutional knowledge compounds.',
+    writes: ['Cross-Client KB'],
+    reads: ['Per-Client KB (full)'],
+    skills: ['brand-discovery'],
+    kbOps: { client: 'read', cross: 'write' }
+  },
+  clientKB: {
+    title: 'Per-Client KB',
+    type: 'Knowledge Base',
+    typeColor: '#fbbf24',
+    cmd: null,
+    body: '<strong>One Google Doc per client</strong> on the WE Marketing Shared Drive. The primary working document for each engagement. Contains intake data, analysis, research, synthesis, and distilled brand essence. Nearly every command reads from or writes to this document — it\'s the shared brain for the engagement.',
+    writes: ['Written by: intake (creates), analyze, research, synthesize, distill'],
+    reads: ['Read by: analyze, research, prep, synthesize, distill, learn, status'],
+    skills: [],
+    kbOps: null
+  },
+  crossKB: {
+    title: 'Cross-Client KB',
+    type: 'Knowledge Base',
+    typeColor: '#fbbf24',
+    cmd: null,
+    body: '<strong>Shared Drive — institutional memory.</strong> A single document that accumulates patterns from every completed engagement. Only <code>/belief learn</code> writes here. Only <code>/belief prep</code> reads from it, pulling cross-client wisdom to make session playbooks smarter over time. After 3+ engagements, the compounding becomes noticeable.',
+    writes: ['Written by: learn (only)'],
+    reads: ['Read by: prep (only)'],
+    skills: [],
+    kbOps: null
+  },
+  kb_skill: {
+    title: 'knowledge-base',
+    type: 'Skill',
+    typeColor: '#a78bfa',
+    cmd: null,
+    body: '<strong>Schema & conventions.</strong> Defines how data should be structured in client KBs — section order, field names, formatting conventions. Ensures consistency across all engagements so that analyze and research can build on intake\'s work reliably.',
+    writes: [],
+    reads: [],
+    skills: ['Informs: intake, analyze, status'],
+    kbOps: null
+  },
+  brand: {
+    title: 'brand-discovery',
+    type: 'Skill',
+    typeColor: '#a78bfa',
+    cmd: null,
+    body: '<strong>The BELIEF methodology itself.</strong> Encodes session stages (Discovery → Experience → Interpret → Express), mode differences (new-brand, rebrand-tweak, rebrand-pivot), and what each phase produces. The intellectual foundation of the entire system.',
+    writes: [],
+    reads: [],
+    skills: ['Informs: prep, synthesize, distill, learn'],
+    kbOps: null
+  },
+  questions: {
+    title: 'question-generation',
+    type: 'Skill',
+    typeColor: '#a78bfa',
+    cmd: null,
+    body: '<strong>Socratic method for client sessions.</strong> Generates probing, layered questions with branching paths and insight triggers from contradictions. Helps facilitators go beyond surface-level answers and produce the Facilitator\'s Playbook.',
+    writes: [],
+    reads: [],
+    skills: ['Informs: prep'],
+    kbOps: null
+  },
+  research_skill: {
+    title: 'research-methodology',
+    type: 'Skill',
+    typeColor: '#a78bfa',
+    cmd: null,
+    body: '<strong>7-area research framework.</strong> Structured approach to external research with source guidance per area and mode-specific emphasis. Ensures comprehensive coverage of competitive landscape, market dynamics, audience insights, and more.',
+    writes: [],
+    reads: [],
+    skills: ['Informs: research'],
+    kbOps: null
+  }
+};
+
+let activeKey = null;
+
+function selectItem(key) {
+  activeKey = key;
+  const d = data[key];
+
+  document.querySelectorAll('.cmd, .skill, .wf-step').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.kb-file, .kb-cross').forEach(el => el.classList.remove('highlight'));
+
+  const card = document.getElementById('card-' + key);
+  if (card) card.classList.add('active');
+  const wf = document.getElementById('wf-' + key);
+  if (wf) wf.classList.add('active');
+
+  highlightKBs(key, d);
+
+  const overlay = document.getElementById('detail-overlay');
+  document.getElementById('det-title').style.color = d.typeColor;
+  document.getElementById('det-title').textContent = d.title;
+  document.getElementById('det-type').style.color = d.typeColor;
+  document.getElementById('det-type').textContent = d.type;
+  document.getElementById('det-body').innerHTML = d.body;
+
+  let flowsHtml = '';
+  if (d.reads.length) {
+    flowsHtml += '<div class="flow-section"><div class="flow-label">Reads from</div><div class="flow-items">';
+    d.reads.forEach(r => flowsHtml += '<span class="flow-tag reads">' + r + '</span>');
+    flowsHtml += '</div></div>';
+  }
+  if (d.writes.length) {
+    flowsHtml += '<div class="flow-section"><div class="flow-label">Writes to</div><div class="flow-items">';
+    d.writes.forEach(w => flowsHtml += '<span class="flow-tag writes">' + w + '</span>');
+    flowsHtml += '</div></div>';
+  }
+  if (d.skills.length) {
+    const label = d.type === 'Skill' ? 'Connections' : 'Uses skills';
+    flowsHtml += '<div class="flow-section"><div class="flow-label">' + label + '</div><div class="flow-items">';
+    d.skills.forEach(s => flowsHtml += '<span class="flow-tag skill-tag">' + s + '</span>');
+    flowsHtml += '</div></div>';
+  }
+  document.getElementById('det-flows').innerHTML = flowsHtml;
+  overlay.classList.add('open');
+  document.body.classList.add('overlay-open');
+}
+
+function highlightKBs(key, d) {
+  document.querySelectorAll('.kb-op').forEach(el => el.classList.remove('visible'));
+
+  if (d.cmd) {
+    const ops = d.kbOps;
+    if (ops && (ops.client === 'create' || ops.client === 'rw' || ops.client === 'read' || ops.client === 'scan')) {
+      document.querySelectorAll('.kb-file').forEach(el => el.classList.add('highlight'));
+    }
+    if (ops && (ops.cross === 'read' || ops.cross === 'write')) {
+      document.getElementById('kb-cross').classList.add('highlight');
+    }
+    document.querySelectorAll('.kb-op[data-cmd="' + d.cmd + '"]').forEach(el => el.classList.add('visible'));
+  } else if (key === 'clientKB') {
+    document.querySelectorAll('.kb-file').forEach(el => el.classList.add('highlight'));
+    document.querySelectorAll('.kb-clients .kb-op').forEach(el => el.classList.add('visible'));
+  } else if (key === 'crossKB') {
+    document.getElementById('kb-cross').classList.add('highlight');
+    document.querySelectorAll('#kb-cross .kb-op').forEach(el => el.classList.add('visible'));
+  }
+}
+
+function closeDetail() {
+  document.getElementById('detail-overlay').classList.remove('open');
+  document.body.classList.remove('overlay-open');
+  document.querySelectorAll('.cmd, .skill, .wf-step').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.kb-file, .kb-cross').forEach(el => el.classList.remove('highlight'));
+  document.querySelectorAll('.kb-op').forEach(el => el.classList.remove('visible'));
+  activeKey = null;
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+</script>
+</body>
+</html>

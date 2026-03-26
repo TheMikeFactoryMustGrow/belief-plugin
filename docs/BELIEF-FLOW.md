@@ -4,18 +4,18 @@
 
 ```mermaid
 flowchart LR
-    subgraph PRE["Pre-Session (T-5 to T-1)"]
+    subgraph PRE["Pre-Session"]
         intake["/belief intake"]
         analyze["/belief analyze"]
         research["/belief research"]
         prep["/belief prep"]
     end
 
-    subgraph SESSION["Live Session (Day 0)"]
+    subgraph SESSION["Live Session"]
         live["BELIEF Session\n(Human-Led)"]
     end
 
-    subgraph POST["Post-Session (Weeks 1-8)"]
+    subgraph POST["Post-Session"]
         synthesize["/belief synthesize"]
         distill["/belief distill"]
         learn["/belief learn"]
@@ -156,13 +156,13 @@ flowchart LR
 
 ## Command Quick Reference
 
-| Command | Phase | Reads From | Writes To | Key Skill |
+| Command | Sequence | Reads From | Writes To | Key Skill |
 |---|---|---|---|---|
-| `/belief intake` | T-5 wks | — | Client KB (creates) | knowledge-base |
-| `/belief analyze` | T-3 wks | Client KB, Drive folder | Client KB | knowledge-base |
-| `/belief research` | T-3 wks | Client KB, Web | Client KB | research-methodology |
-| `/belief prep` | T-1 wk | Client KB, Cross-Client KB | Playbook (new doc) | question-generation, brand-discovery |
-| `/belief synthesize` | +24 hrs | Client KB, Session notes | Client KB | brand-discovery |
-| `/belief distill` | Week 1 | Client KB (full) | Client KB, Foundation doc | brand-discovery |
+| `/belief intake` | 1. Setup | — | Client KB (creates) | knowledge-base |
+| `/belief analyze` | 2. Pre-session | Client KB, Drive folder | Client KB | knowledge-base |
+| `/belief research` | 2. Pre-session | Client KB, Web | Client KB | research-methodology |
+| `/belief prep` | 3. Pre-session | Client KB, Cross-Client KB | Playbook (new doc) | question-generation, brand-discovery |
+| `/belief synthesize` | 4. Post-session | Client KB, Session notes | Client KB | brand-discovery |
+| `/belief distill` | 5. Post-session | Client KB (full) | Client KB, Foundation doc | brand-discovery |
 | `/belief status` | Anytime | All Client KBs | Console output | knowledge-base |
-| `/belief learn` | Week 8 | Client KB (full) | Cross-Client KB | brand-discovery |
+| `/belief learn` | 6. Close-out | Client KB (full) | Cross-Client KB | brand-discovery |

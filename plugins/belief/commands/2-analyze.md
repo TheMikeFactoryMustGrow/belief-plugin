@@ -11,7 +11,7 @@ Ingest all documents in a client's BELIEF folder, produce a structured synthesis
 
 ## Trigger
 
-User runs `/BELIEF 2-analyze` or asks to review client materials, ingest documents, analyze homework, audit what's been uploaded, or check for gaps in client materials.
+User runs `/belief:2-analyze` or asks to review client materials, ingest documents, analyze homework, audit what's been uploaded, or check for gaps in client materials.
 
 ## Inputs
 
@@ -26,7 +26,7 @@ User runs `/BELIEF 2-analyze` or asks to review client materials, ingest documen
 - Find the client's knowledge base doc (`BELIEF Knowledge Base — [Client Name]`) using `mcp__google-workspace__search_drive_files`
 - Read the full content using `mcp__google-workspace__get_doc_as_markdown`
 - Extract the Engagement Config (mode, contacts) and Document Inventory (what's already been ingested)
-- If no knowledge base exists, prompt the user to run `/BELIEF 1-intake` first
+- If no knowledge base exists, prompt the user to run `/belief:1-intake` first
 
 ### Step 2: Inventory the BELIEF Folder
 
@@ -57,7 +57,7 @@ For each new or changed document:
 
 **PDFs and DOCX**: Check the local Google Drive mount at `~/Library/CloudStorage/GoogleDrive-mike@wassonenterprise.com/`. Read using local file access. If the file is not accessible locally, note it as a gap and tell the user.
 
-**Gemini meeting notes**: These are Google Docs with names like `[Client] BELIEF Session - [date] - Notes by Gemini`. Read as Google Docs. Flag these separately — they contain session content that feeds `/BELIEF 4-synthesize`.
+**Gemini meeting notes**: These are Google Docs with names like `[Client] BELIEF Session - [date] - Notes by Gemini`. Read as Google Docs. Flag these separately — they contain session content that feeds `/belief:4-synthesize`.
 
 For each document read, record:
 - Filename and type
@@ -95,7 +95,7 @@ If the knowledge base already has content in the synthesis sections (from a prev
 Update the knowledge base doc:
 1. Add new entries to the Document Inventory table
 2. Update the Synthesized Understanding sections with merged content
-3. Update the "Last Updated" field: `[today's date] by /BELIEF 2-analyze`
+3. Update the "Last Updated" field: `[today's date] by /belief:2-analyze`
 
 Use `mcp__google-workspace__modify_doc_text` for targeted updates.
 
@@ -132,7 +132,7 @@ Knowledge base updated: BELIEF Knowledge Base — [Client Name]
 After the summary, ask:
 
 > "Would you like to:
-> - Run `/BELIEF 2-research` to fill gaps with independent market research?
-> - Run `/BELIEF 3-prep` to generate the Facilitator's Playbook?
+> - Run `/belief:2-research` to fill gaps with independent market research?
+> - Run `/belief:3-prep` to generate the Facilitator's Playbook?
 > - Dive deeper into any of the contradictions or themes identified?
 > - Re-analyze after additional materials arrive?"

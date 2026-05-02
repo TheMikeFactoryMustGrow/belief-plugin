@@ -15,25 +15,25 @@ The opportunity: automate the information processing work so the team can focus 
 
 - R1. **Per-Client Knowledge Base** — Every BELIEF engagement has a shared, evolving knowledge base that every team member's work enriches. When any team member adds a document, analysis, or note to the client's Drive folder, the knowledge base is updated. When anyone uses AI tools for that client, they benefit from everything the team has contributed. The knowledge base is the single source of synthesized context per client.
 
-- R2. **Document Ingestion & Analysis (`/BELIEF 2-analyze`)** — Ingest all documents in a client's Google Drive folder — homework responses, uploaded materials, team-written proposals, working backwards docs, research notes. Produce a structured synthesis: what we know, what's missing, key themes, contradictions, and open questions. Append to the per-client knowledge base. Support incremental re-analysis as new documents arrive.
+- R2. **Document Ingestion & Analysis (`/belief:2-analyze`)** — Ingest all documents in a client's Google Drive folder — homework responses, uploaded materials, team-written proposals, working backwards docs, research notes. Produce a structured synthesis: what we know, what's missing, key themes, contradictions, and open questions. Append to the per-client knowledge base. Support incremental re-analysis as new documents arrive.
 
-- R3. **Independent Research Automation (`/BELIEF 2-research`)** — Conduct the 7-area WE Marketing Research (Company Overview, Current Brand Expression, Competitive Landscape, Target Audience Signals, Market & Industry Trends, White Space Analysis, Past Campaigns & Creative) using web research and available tools. This runs independently of client materials (the T-3 parallel track). Output feeds the per-client knowledge base.
+- R3. **Independent Research Automation (`/belief:2-research`)** — Conduct the 7-area WE Marketing Research (Company Overview, Current Brand Expression, Competitive Landscape, Target Audience Signals, Market & Industry Trends, White Space Analysis, Past Campaigns & Creative) using web research and available tools. This runs independently of client materials (the T-3 parallel track). Output feeds the per-client knowledge base.
 
-- R4. **Facilitator's Playbook (`/BELIEF 3-prep`)** — Generate a structured facilitation preparation document containing: question trees (branching conversation paths), insight triggers (questions to surface tensions/contradictions from research), and context cards (explaining WHY each question matters and what to listen for). Tailored to engagement mode. Built from the full per-client knowledge base.
+- R4. **Facilitator's Playbook (`/belief:3-prep`)** — Generate a structured facilitation preparation document containing: question trees (branching conversation paths), insight triggers (questions to surface tensions/contradictions from research), and context cards (explaining WHY each question matters and what to listen for). Tailored to engagement mode. Built from the full per-client knowledge base.
 
-- R5. **Post-Session Synthesis (`/BELIEF 4-synthesize`)** — Process session notes, transcripts (from Gemini), and any captured materials. Extract key decisions, themes, emotional moments, and commitments. Identify where the conversation confirmed, contradicted, or surprised vs. pre-session research. Update the per-client knowledge base with session insights.
+- R5. **Post-Session Synthesis (`/belief:4-synthesize`)** — Process session notes, transcripts (from Gemini), and any captured materials. Extract key decisions, themes, emotional moments, and commitments. Identify where the conversation confirmed, contradicted, or surprised vs. pre-session research. Update the per-client knowledge base with session insights.
 
-- R6. **Brand Essence Distillation (`/BELIEF 5-distill`)** — From all accumulated context generate candidate brand essence statements. The "3 statements that nail who they are." Draft purpose, vision, mission, values, positioning, and pillars. Starting point for human creative synthesis, not a replacement.
+- R6. **Brand Essence Distillation (`/belief:5-distill`)** — From all accumulated context generate candidate brand essence statements. The "3 statements that nail who they are." Draft purpose, vision, mission, values, positioning, and pillars. Starting point for human creative synthesis, not a replacement.
 
-- R7. **Engagement Lifecycle Management (`/BELIEF 1-intake`, `/BELIEF status`)** — intake: set up new engagement with client name, Drive folder, mode, contacts, session date. status: dashboard of all engagements showing lifecycle stage and completeness.
+- R7. **Engagement Lifecycle Management (`/belief:1-intake`, `/belief:status`)** — intake: set up new engagement with client name, Drive folder, mode, contacts, session date. status: dashboard of all engagements showing lifecycle stage and completeness.
 
-- R8. **Cross-Client Learning (`/BELIEF 6-learn`)** — After engagement completion, capture facilitation patterns, industry intelligence, and process improvements. Feed a cross-client knowledge base that makes future engagements smarter.
+- R8. **Cross-Client Learning (`/belief:6-learn`)** — After engagement completion, capture facilitation patterns, industry intelligence, and process improvements. Feed a cross-client knowledge base that makes future engagements smarter.
 
 - R9. **Three Engagement Modes** — Same session structure (Discovery, Experience, Interpret, Express) for all modes. Different analytical emphasis: new-brand (white space, founder intent), rebrand-tweak (what's working, perception gaps), rebrand-pivot (why old brand doesn't fit, signaling transformation).
 
 ## Success Criteria
 
-- SC1. `/BELIEF 2-analyze` produces synthesis another team member finds genuinely useful
+- SC1. `/belief:2-analyze` produces synthesis another team member finds genuinely useful
 - SC2. Facilitator's Playbook surfaces 2-3 insight triggers team wouldn't have found without it
 - SC3. Team members gain meaningful context from each other's work without reading every document
 - SC4. Post-session synthesis accurately captures key decisions and themes

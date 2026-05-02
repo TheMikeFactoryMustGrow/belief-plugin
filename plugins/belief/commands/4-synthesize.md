@@ -11,7 +11,7 @@ Process BELIEF session notes, transcripts, and captured materials into structure
 
 ## Trigger
 
-User runs `/BELIEF 4-synthesize` or asks to process session notes, analyze the BELIEF session, debrief, or synthesize what happened in the meeting.
+User runs `/belief:4-synthesize` or asks to process session notes, analyze the BELIEF session, debrief, or synthesize what happened in the meeting.
 
 ## Inputs
 
@@ -105,7 +105,7 @@ This feedback is critical for the cross-client learning system.
 Write the session insights to the knowledge base:
 - Populate the Session Insights section (Key Decisions, Themes, Confirmed vs. Surprised, Commitments)
 - Update Synthesized Understanding with session-corrected information
-- Update "Last Updated" field: `[today's date] by /BELIEF 4-synthesize`
+- Update "Last Updated" field: `[today's date] by /belief:4-synthesize`
 
 ### Step 7: Prepare for Distillation
 
@@ -115,7 +115,7 @@ Identify the strongest threads for brand distillation:
 - What values were demonstrated (not just stated)?
 - What was the emotional core of the session?
 
-Note these as seeds for `/BELIEF 5-distill`.
+Note these as seeds for `/belief:5-distill`.
 
 ## Output
 
@@ -156,7 +156,7 @@ Knowledge base updated: BELIEF Knowledge Base — [Client Name]
 After the summary, ask:
 
 > "Would you like to:
-> - Run `/BELIEF 5-distill` to generate brand foundation drafts from this synthesis?
+> - Run `/belief:5-distill` to generate brand foundation drafts from this synthesis?
 > - Add facilitator observations that weren't in the notes?
 > - Dive deeper into any specific decision or theme?
 > - Share the synthesis with the team for review?"

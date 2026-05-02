@@ -11,7 +11,7 @@ Generate the Facilitator's Playbook — a comprehensive facilitation preparation
 
 ## Trigger
 
-User runs `/BELIEF 3-prep` or asks to prepare for a BELIEF session, generate session questions, build a facilitation guide, or create a playbook for a client session.
+User runs `/belief:3-prep` or asks to prepare for a BELIEF session, generate session questions, build a facilitation guide, or create a playbook for a client session.
 
 ## Inputs
 
@@ -24,12 +24,12 @@ User runs `/BELIEF 3-prep` or asks to prepare for a BELIEF session, generate ses
 ## Prerequisites
 
 The playbook quality depends directly on the richness of the knowledge base. Ideal state:
-- `/BELIEF 2-analyze` has been run (document synthesis available)
-- `/BELIEF 2-research` has been run (market research available)
+- `/belief:2-analyze` has been run (document synthesis available)
+- `/belief:2-research` has been run (market research available)
 - Both have been run and the knowledge base is rich
 
 If neither has been run, warn the user:
-> "The knowledge base for [Client Name] is sparse — the playbook will be more generic. For best results, run `/BELIEF 2-analyze` and `/BELIEF 2-research` first."
+> "The knowledge base for [Client Name] is sparse — the playbook will be more generic. For best results, run `/belief:2-analyze` and `/belief:2-research` first."
 
 Proceed anyway if the user wants to — a generic playbook from the framework alone is still valuable.
 
@@ -187,7 +187,7 @@ Use `mcp__google-workspace__create_doc` to create the doc.
 ### Step 8: Update the Knowledge Base
 
 Note in the knowledge base that the playbook was generated:
-- Update "Last Updated" field: `[today's date] by /BELIEF 3-prep`
+- Update "Last Updated" field: `[today's date] by /belief:3-prep`
 - Note any new questions or angles that emerged during playbook generation
 
 ## Output
@@ -229,4 +229,4 @@ After the summary, ask:
 > - Review the full playbook in detail?
 > - Refine questions for a specific session stage?
 > - Add facilitator-specific notes or concerns to the playbook?
-> - Run `/BELIEF 2-analyze` to incorporate any new materials before the session?"
+> - Run `/belief:2-analyze` to incorporate any new materials before the session?"

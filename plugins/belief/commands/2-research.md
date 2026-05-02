@@ -11,7 +11,7 @@ Conduct independent market research across the seven WE Marketing Research areas
 
 ## Trigger
 
-User runs `/BELIEF research` or asks to research a client's market, competitors, industry, or audience for a BELIEF engagement.
+User runs `/BELIEF 2-research` or asks to research a client's market, competitors, industry, or audience for a BELIEF engagement.
 
 ## Inputs
 
@@ -28,7 +28,7 @@ User runs `/BELIEF research` or asks to research a client's market, competitors,
 - Read the client's knowledge base doc (`BELIEF Knowledge Base — [Client Name]`)
 - Extract the Engagement Config (especially mode and client contacts)
 - Check if any Research Findings already exist from a previous run
-- Read the Synthesized Understanding section for context from document analysis (if `/BELIEF analyze` has been run)
+- Read the Synthesized Understanding section for context from document analysis (if `/BELIEF 2-analyze` has been run)
 - This context helps focus research on what matters and avoid duplicating what's already known
 
 ### Step 2: Conduct Research
@@ -69,7 +69,7 @@ After completing individual area research, look across all seven areas for:
 - Write research findings to the Research Findings section of the knowledge base doc
 - If research reveals new gaps or contradictions, update the Synthesized Understanding section
 - Add any new open questions to the Open Questions section
-- Update "Last Updated" field: `[today's date] by /BELIEF research`
+- Update "Last Updated" field: `[today's date] by /BELIEF 2-research`
 
 If research findings already exist from a previous run, merge new findings with existing ones rather than replacing.
 
@@ -120,6 +120,6 @@ After the summary, ask:
 
 > "Would you like to:
 > - Dive deeper into any specific research area?
-> - Run `/BELIEF prep` to generate the Facilitator's Playbook?
-> - Run `/BELIEF analyze` to cross-reference research with client materials?
+> - Run `/BELIEF 3-prep` to generate the Facilitator's Playbook?
+> - Run `/BELIEF 2-analyze` to cross-reference research with client materials?
 > - Explore a specific competitor or market angle in more detail?"

@@ -84,4 +84,4 @@ After the dashboard, ask:
 > "Would you like to:
 > - Drill into a specific engagement?
 > - Run the recommended next step for any active engagement?
-> - Set up a new engagement with `/BELIEF intake`?"
+> - Set up a new engagement with `/BELIEF 1-intake`?"

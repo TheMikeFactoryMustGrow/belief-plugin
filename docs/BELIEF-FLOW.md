@@ -5,10 +5,10 @@
 ```mermaid
 flowchart LR
     subgraph PRE["Pre-Session"]
-        intake["/BELIEF intake"]
-        analyze["/BELIEF analyze"]
-        research["/BELIEF research"]
-        prep["/BELIEF prep"]
+        intake["/BELIEF 1-intake"]
+        analyze["/BELIEF 2-analyze"]
+        research["/BELIEF 2-research"]
+        prep["/BELIEF 3-prep"]
     end
 
     subgraph SESSION["Live Session"]
@@ -16,9 +16,9 @@ flowchart LR
     end
 
     subgraph POST["Post-Session"]
-        synthesize["/BELIEF synthesize"]
-        distill["/BELIEF distill"]
-        learn["/BELIEF learn"]
+        synthesize["/BELIEF 4-synthesize"]
+        distill["/BELIEF 5-distill"]
+        learn["/BELIEF 6-learn"]
     end
 
     intake --> analyze
@@ -45,14 +45,14 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph COMMANDS["Commands (What You Run)"]
-        intake["/BELIEF intake"]
-        analyze["/BELIEF analyze"]
-        research["/BELIEF research"]
-        prep["/BELIEF prep"]
-        synthesize["/BELIEF synthesize"]
-        distill["/BELIEF distill"]
+        intake["/BELIEF 1-intake"]
+        analyze["/BELIEF 2-analyze"]
+        research["/BELIEF 2-research"]
+        prep["/BELIEF 3-prep"]
+        synthesize["/BELIEF 4-synthesize"]
+        distill["/BELIEF 5-distill"]
         status["/BELIEF status"]
-        learn["/BELIEF learn"]
+        learn["/BELIEF 6-learn"]
     end
 
     subgraph KB["Knowledge Bases (Where Data Lives)"]
@@ -109,19 +109,19 @@ flowchart TB
 flowchart TB
     subgraph LOOP1["Per-Client Loop (Within One Engagement)"]
         direction LR
-        kathryn["Kathryn runs\n/BELIEF analyze"] --> kb1["Client KB\nenriched"]
-        kb1 --> stacy["Stacy runs\n/BELIEF research"]
+        kathryn["Kathryn runs\n/BELIEF 2-analyze"] --> kb1["Client KB\nenriched"]
+        kb1 --> stacy["Stacy runs\n/BELIEF 2-research"]
         stacy --> kb2["Client KB\ndeeper"]
-        kb2 --> prep1["Anyone runs\n/BELIEF prep"]
+        kb2 --> prep1["Anyone runs\n/BELIEF 3-prep"]
         prep1 --> playbook["Playbook reflects\neveryone's work"]
     end
 
     subgraph LOOP2["Cross-Client Loop (Across Engagements)"]
         direction LR
-        eng1["Engagement 1\n/BELIEF learn"] --> xkb["Cross-Client KB"]
-        eng2["Engagement 2\n/BELIEF learn"] --> xkb
-        eng3["Engagement 3\n/BELIEF learn"] --> xkb
-        xkb --> future["/BELIEF prep\nfor new clients"]
+        eng1["Engagement 1\n/BELIEF 6-learn"] --> xkb["Cross-Client KB"]
+        eng2["Engagement 2\n/BELIEF 6-learn"] --> xkb
+        eng3["Engagement 3\n/BELIEF 6-learn"] --> xkb
+        xkb --> future["/BELIEF 3-prep\nfor new clients"]
         future --> better["Better playbooks\nover time"]
     end
 
@@ -158,11 +158,11 @@ flowchart LR
 
 | Command | Sequence | Reads From | Writes To | Key Skill |
 |---|---|---|---|---|
-| `/BELIEF intake` | 1. Setup | — | Client KB (creates) | knowledge-base |
-| `/BELIEF analyze` | 2. Pre-session | Client KB, Drive folder | Client KB | knowledge-base |
-| `/BELIEF research` | 2. Pre-session | Client KB, Web | Client KB | research-methodology |
-| `/BELIEF prep` | 3. Pre-session | Client KB, Cross-Client KB | Playbook (new doc) | question-generation, brand-discovery |
-| `/BELIEF synthesize` | 4. Post-session | Client KB, Session notes | Client KB | brand-discovery |
-| `/BELIEF distill` | 5. Post-session | Client KB (full) | Client KB, Foundation doc | brand-discovery |
+| `/BELIEF 1-intake` | 1. Setup | — | Client KB (creates) | knowledge-base |
+| `/BELIEF 2-analyze` | 2. Pre-session | Client KB, Drive folder | Client KB | knowledge-base |
+| `/BELIEF 2-research` | 2. Pre-session | Client KB, Web | Client KB | research-methodology |
+| `/BELIEF 3-prep` | 3. Pre-session | Client KB, Cross-Client KB | Playbook (new doc) | question-generation, brand-discovery |
+| `/BELIEF 4-synthesize` | 4. Post-session | Client KB, Session notes | Client KB | brand-discovery |
+| `/BELIEF 5-distill` | 5. Post-session | Client KB (full) | Client KB, Foundation doc | brand-discovery |
 | `/BELIEF status` | Anytime | All Client KBs | Console output | knowledge-base |
-| `/BELIEF learn` | 6. Close-out | Client KB (full) | Cross-Client KB | brand-discovery |
+| `/BELIEF 6-learn` | 6. Close-out | Client KB (full) | Cross-Client KB | brand-discovery |

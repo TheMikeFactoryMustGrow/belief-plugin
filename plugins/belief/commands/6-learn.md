@@ -11,7 +11,7 @@ Capture learnings from a completed BELIEF engagement — facilitation patterns, 
 
 ## Trigger
 
-User runs `/BELIEF learn` or asks to capture learnings, debrief after an engagement, record what worked, or close out a BELIEF project.
+User runs `/BELIEF 6-learn` or asks to capture learnings, debrief after an engagement, record what worked, or close out a BELIEF project.
 
 ## Inputs
 
@@ -91,7 +91,7 @@ Use `mcp__google-workspace__modify_doc_text` for targeted updates.
 
 Update the per-client knowledge base:
 - Note that learnings have been captured
-- Update "Last Updated" field: `[today's date] by /BELIEF learn`
+- Update "Last Updated" field: `[today's date] by /BELIEF 6-learn`
 
 ## Output
 
@@ -124,4 +124,4 @@ After the summary, ask:
 > "Would you like to:
 > - Review the full cross-client knowledge base?
 > - Run `/BELIEF status` to see the updated engagement dashboard?
-> - Set up a new engagement with `/BELIEF intake`?"
+> - Set up a new engagement with `/BELIEF 1-intake`?"

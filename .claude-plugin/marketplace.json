@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "belief-plugin",
+  "description": "Wasson Enterprise BELIEF brand discovery automation. A facilitator-first plugin that ingests client materials, conducts independent market research, generates the Facilitator's Playbook, synthesizes post-session insights, and compounds learning across engagements.",
+  "owner": {
+    "name": "Wasson Enterprise",
+    "email": "michael.t.lingle@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "belief",
+      "description": "Automate the WE BELIEF brand discovery process. Ingest client materials, conduct research, generate facilitator playbooks, synthesize session insights, and compound learning across engagements.",
+      "category": "marketing",
+      "source": "./plugins/belief",
+      "homepage": "https://github.com/TheMikeFactoryMustGrow/belief-plugin"
+    }
+  ]
+}

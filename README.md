@@ -4,9 +4,14 @@ A plugin for [Cowork](https://claude.com/product/cowork) that automates the Wass
 
 ## Installation
 
-```bash
-claude plugins add knowledge-work-plugins/belief
+In Claude Code or Cowork, add this repo as a marketplace and install the plugin:
+
 ```
+/plugin marketplace add TheMikeFactoryMustGrow/belief-plugin
+/plugin install belief@belief-plugin
+```
+
+The plugin requires the Google Workspace MCP server to be configured globally — see [`plugins/belief/CONNECTORS.md`](plugins/belief/CONNECTORS.md) for the full integration list.
 
 ## Commands
 

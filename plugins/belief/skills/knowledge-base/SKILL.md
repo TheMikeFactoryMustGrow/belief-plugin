@@ -19,7 +19,7 @@ This is the single source of synthesized context for a client engagement. Every 
 
 A single Google Doc on the WE Marketing shared drive. Path: `Shared drives/WE Marketing/WE BELIEF/BELIEF Cross-Client Learnings`
 
-Accumulates facilitation patterns, industry intelligence, and process improvements across all engagements. Read by `/belief prep` to enhance playbooks with cross-engagement intelligence.
+Accumulates facilitation patterns, industry intelligence, and process improvements across all engagements. Read by `/BELIEF prep` to enhance playbooks with cross-engagement intelligence.
 
 ## Per-Client Knowledge Base Schema
 
@@ -164,7 +164,7 @@ Accumulates facilitation patterns, industry intelligence, and process improvemen
 
 ## Client Homework Questions (Completeness Checklist)
 
-The homework document sent to clients 3 weeks prior covers these areas. Use this to audit homework completeness in `/belief analyze`:
+The homework document sent to clients 3 weeks prior covers these areas. Use this to audit homework completeness in `/BELIEF analyze`:
 
 1. **SWOT Analysis**: Strengths (advantages, what we do better), Weaknesses (what to improve/avoid), Opportunities (trends, market gaps), Threats (obstacles, competitor moves)
 2. **Value Proposition**: What do we currently do? How do we do it? For whom? What's our value?
@@ -180,7 +180,7 @@ Ideally, each attendee fills out their own homework separately. When multiple ho
 
 ## Client Materials Checklist (5 Categories)
 
-Use this checklist in `/belief analyze` to score materials completeness and identify gaps.
+Use this checklist in `/BELIEF analyze` to score materials completeness and identify gaps.
 
 ### 1. Core Business Documents
 - [ ] Company overview or "about us" document
@@ -240,7 +240,7 @@ Each BELIEF deck section is assigned to a WE team member who owns it end-to-end:
 | Visual & Creative Identity | Creative Director | Logo files, brand guidelines, past campaigns, visual assets | What works visually? What no longer reflects who the brand is? |
 | Communication & Messaging | — | Sales collateral, email campaigns, social content, one-pagers | How does the brand speak today? Is the voice consistent? |
 
-The `/belief intake` command should prompt for section ownership assignments.
+The `/BELIEF intake` command should prompt for section ownership assignments.
 
 ## Existing AI Prompt Patterns
 
@@ -252,7 +252,7 @@ These prompts are already in use by the WE Marketing team. The plugin should enh
 **Deck Question Generation Prompt:**
 > "Based on this research summary and client homework, generate 3 probing questions for each of the following BELIEF deck sections: Situation Analysis, Competitive Landscape, Target Audience, Vision/Mission, Positioning, and Visual Identity. Questions should challenge assumptions and uncover what the client may not have thought to articulate."
 
-The plugin's `/belief analyze` and `/belief prep` commands should produce outputs that are strictly superior to these prompts — more context-aware, more nuanced, and building on the full knowledge base rather than a single paste.
+The plugin's `/BELIEF analyze` and `/BELIEF prep` commands should produce outputs that are strictly superior to these prompts — more context-aware, more nuanced, and building on the full knowledge base rather than a single paste.
 
 ## Update Conventions
 
@@ -279,13 +279,13 @@ The plugin's `/belief analyze` and `/belief prep` commands should produce output
 ### Incremental Updates
 
 The knowledge base is designed for incremental enrichment:
-- `/belief intake` creates the doc and populates Engagement Config
-- `/belief analyze` populates Document Inventory, Synthesized Understanding
-- `/belief research` populates Research Findings
-- `/belief prep` reads everything, writes the playbook as a separate doc
-- `/belief synthesize` populates Session Insights
-- `/belief distill` populates Brand Foundation Draft
-- `/belief learn` reads the full KB, writes to the cross-client KB
+- `/BELIEF intake` creates the doc and populates Engagement Config
+- `/BELIEF analyze` populates Document Inventory, Synthesized Understanding
+- `/BELIEF research` populates Research Findings
+- `/BELIEF prep` reads everything, writes the playbook as a separate doc
+- `/BELIEF synthesize` populates Session Insights
+- `/BELIEF distill` populates Brand Foundation Draft
+- `/BELIEF learn` reads the full KB, writes to the cross-client KB
 
 Each command should check what already exists and merge rather than overwrite. If a section already has content from a previous run, integrate new findings with existing ones and note what changed.
 
@@ -295,7 +295,7 @@ Each command should check what already exists and merge rather than overwrite. I
 
 Client BELIEF materials live at: `Shared drives/WE Marketing/Clients/[Client Name]/BELIEF/`
 
-The `/belief intake` command creates this folder if it doesn't exist and populates it with:
+The `/BELIEF intake` command creates this folder if it doesn't exist and populates it with:
 - `BELIEF Knowledge Base — [Client Name]` (Google Doc)
 - Copy of `BELIEF Session Template Slides` (from `WE BELIEF/`)
 - Copy of `WE Discovery Homework Template` (from `WE BELIEF/`)

@@ -195,7 +195,7 @@ These are the precise definitions used in the WE Brand Overview deliverable. Eac
 | **Pillars** | Our "Promises" | Foundational themes and core promises we make to our audience that bring positioning to life. |
 | **Reasons to Believe** | Our "Proof" | Tangible, evidence-based claims (hard and soft) that support brand pillars and prove we deliver. |
 
-These definitions should inform how `/belief distill` frames its output — use the "Our Why/Where/What" language to make elements intuitive for client teams.
+These definitions should inform how `/BELIEF distill` frames its output — use the "Our Why/Where/What" language to make elements intuitive for client teams.
 
 ## The Art of Brand Distillation
 

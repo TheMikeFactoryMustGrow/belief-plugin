@@ -11,7 +11,7 @@ Display a dashboard of all BELIEF engagements across the WE Marketing shared dri
 
 ## Trigger
 
-User runs `/belief status` or asks to see all BELIEF engagements, check on project status, or view the BELIEF pipeline.
+User runs `/BELIEF status` or asks to see all BELIEF engagements, check on project status, or view the BELIEF pipeline.
 
 ## Inputs
 
@@ -84,4 +84,4 @@ After the dashboard, ask:
 > "Would you like to:
 > - Drill into a specific engagement?
 > - Run the recommended next step for any active engagement?
-> - Set up a new engagement with `/belief intake`?"
+> - Set up a new engagement with `/BELIEF intake`?"

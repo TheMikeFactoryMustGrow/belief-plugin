@@ -11,7 +11,7 @@ Set up a new BELIEF brand discovery engagement. Creates the Drive folder structu
 
 ## Trigger
 
-User runs `/belief intake` or asks to set up a new BELIEF engagement, start a new brand project, or onboard a new BELIEF client.
+User runs `/BELIEF intake` or asks to set up a new BELIEF engagement, start a new brand project, or onboard a new BELIEF client.
 
 ## Inputs
 
@@ -106,13 +106,13 @@ Created:
 
 Knowledge base is ready. Next steps:
   - Send homework to client
-  - Run /belief research to start independent market research
-  - Run /belief analyze after client materials arrive
+  - Run /BELIEF research to start independent market research
+  - Run /BELIEF analyze after client materials arrive
 ```
 
 After the summary, ask:
 
 > "Would you like to:
-> - Run `/belief research` to start independent market research now?
+> - Run `/BELIEF research` to start independent market research now?
 > - Review the homework template before sending to the client?
 > - Add team members or contacts to the engagement config?"

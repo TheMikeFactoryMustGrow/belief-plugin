@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "belief",
+      "name": "BELIEF",
       "description": "Automate the WE BELIEF brand discovery process. Ingest client materials, conduct research, generate facilitator playbooks, synthesize session insights, and compound learning across engagements.",
       "category": "marketing",
       "source": "./plugins/belief",

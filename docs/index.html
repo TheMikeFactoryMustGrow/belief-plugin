@@ -210,7 +210,7 @@
       <div class="kb-bridge">
         <div class="bridge-arrow">&larr;</div>
         <div class="bridge-line"></div>
-        <div class="bridge-label">/belief learn</div>
+        <div class="bridge-label">/BELIEF learn</div>
         <div class="bridge-line"></div>
         <div class="bridge-arrow">&rarr;</div>
       </div>
@@ -219,7 +219,7 @@
         <div class="kb-cross" id="kb-cross" onclick="selectItem('crossKB')">
           <div class="kb-cross-name">Cross-Client KB</div>
           <div class="kb-cross-sub">Shared Drive &middot; Institutional memory</div>
-          <div class="kb-cross-desc">Patterns from every completed engagement compound here. Gets smarter with each /belief learn.</div>
+          <div class="kb-cross-desc">Patterns from every completed engagement compound here. Gets smarter with each /BELIEF learn.</div>
           <div class="kb-file-ops" style="margin-top:10px;">
             <span class="kb-op op-write" data-cmd="learn">learn writes</span>
             <span class="kb-op op-read" data-cmd="prep">prep reads</span>
@@ -235,35 +235,35 @@
       <div class="layer-desc">Slash commands that drive the workflow</div>
       <div class="cmd-grid">
         <div class="cmd" id="card-intake" onclick="selectItem('intake')">
-          <div><div class="cmd-name">/belief intake</div><div class="cmd-role">Onboard a new client</div></div>
+          <div><div class="cmd-name">/BELIEF intake</div><div class="cmd-role">Onboard a new client</div></div>
           <span class="cmd-badge badge-create">CREATES</span>
         </div>
         <div class="cmd" id="card-analyze" onclick="selectItem('analyze')">
-          <div><div class="cmd-name">/belief analyze</div><div class="cmd-role">Deep-dive on data</div></div>
+          <div><div class="cmd-name">/BELIEF analyze</div><div class="cmd-role">Deep-dive on data</div></div>
           <span class="cmd-badge badge-rw">R/W</span>
         </div>
         <div class="cmd" id="card-research" onclick="selectItem('research')">
-          <div><div class="cmd-name">/belief research</div><div class="cmd-role">Market research</div></div>
+          <div><div class="cmd-name">/BELIEF research</div><div class="cmd-role">Market research</div></div>
           <span class="cmd-badge badge-rw">R/W</span>
         </div>
         <div class="cmd" id="card-prep" onclick="selectItem('prep')">
-          <div><div class="cmd-name">/belief prep</div><div class="cmd-role">Session playbook</div></div>
+          <div><div class="cmd-name">/BELIEF prep</div><div class="cmd-role">Session playbook</div></div>
           <span class="cmd-badge badge-read">READS</span>
         </div>
         <div class="cmd" id="card-synthesize" onclick="selectItem('synthesize')">
-          <div><div class="cmd-name">/belief synthesize</div><div class="cmd-role">Combine findings</div></div>
+          <div><div class="cmd-name">/BELIEF synthesize</div><div class="cmd-role">Combine findings</div></div>
           <span class="cmd-badge badge-rw">R/W</span>
         </div>
         <div class="cmd" id="card-distill" onclick="selectItem('distill')">
-          <div><div class="cmd-name">/belief distill</div><div class="cmd-role">Brand essence</div></div>
+          <div><div class="cmd-name">/BELIEF distill</div><div class="cmd-role">Brand essence</div></div>
           <span class="cmd-badge badge-rw">R/W</span>
         </div>
         <div class="cmd" id="card-status" onclick="selectItem('status')">
-          <div><div class="cmd-name">/belief status</div><div class="cmd-role">Check progress</div></div>
+          <div><div class="cmd-name">/BELIEF status</div><div class="cmd-role">Check progress</div></div>
           <span class="cmd-badge badge-scan">SCANS</span>
         </div>
         <div class="cmd" id="card-learn" onclick="selectItem('learn')">
-          <div><div class="cmd-name">/belief learn</div><div class="cmd-role">Cross-client patterns</div></div>
+          <div><div class="cmd-name">/BELIEF learn</div><div class="cmd-role">Cross-client patterns</div></div>
           <span class="cmd-badge badge-write">CROSS</span>
         </div>
       </div>
@@ -313,7 +313,7 @@
 <script>
 const data = {
   intake: {
-    title: '/belief intake',
+    title: '/BELIEF intake',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'intake',
@@ -324,7 +324,7 @@ const data = {
     kbOps: { client: 'create', cross: null }
   },
   analyze: {
-    title: '/belief analyze',
+    title: '/BELIEF analyze',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'analyze',
@@ -335,7 +335,7 @@ const data = {
     kbOps: { client: 'rw', cross: null }
   },
   research: {
-    title: '/belief research',
+    title: '/BELIEF research',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'research',
@@ -346,7 +346,7 @@ const data = {
     kbOps: { client: 'rw', cross: null }
   },
   prep: {
-    title: '/belief prep',
+    title: '/BELIEF prep',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'prep',
@@ -357,7 +357,7 @@ const data = {
     kbOps: { client: 'read', cross: 'read' }
   },
   synthesize: {
-    title: '/belief synthesize',
+    title: '/BELIEF synthesize',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'synthesize',
@@ -368,7 +368,7 @@ const data = {
     kbOps: { client: 'rw', cross: null }
   },
   distill: {
-    title: '/belief distill',
+    title: '/BELIEF distill',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'distill',
@@ -379,7 +379,7 @@ const data = {
     kbOps: { client: 'rw', cross: null }
   },
   status: {
-    title: '/belief status',
+    title: '/BELIEF status',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'status',
@@ -390,7 +390,7 @@ const data = {
     kbOps: { client: 'scan', cross: null }
   },
   learn: {
-    title: '/belief learn',
+    title: '/BELIEF learn',
     type: 'Command',
     typeColor: '#60a5fa',
     cmd: 'learn',
@@ -416,7 +416,7 @@ const data = {
     type: 'Knowledge Base',
     typeColor: '#fbbf24',
     cmd: null,
-    body: '<strong>Shared Drive — institutional memory.</strong> A single document that accumulates patterns from every completed engagement. Only <code>/belief learn</code> writes here. Only <code>/belief prep</code> reads from it, pulling cross-client wisdom to make session playbooks smarter over time. After 3+ engagements, the compounding becomes noticeable.',
+    body: '<strong>Shared Drive — institutional memory.</strong> A single document that accumulates patterns from every completed engagement. Only <code>/BELIEF learn</code> writes here. Only <code>/BELIEF prep</code> reads from it, pulling cross-client wisdom to make session playbooks smarter over time. After 3+ engagements, the compounding becomes noticeable.',
     writes: ['Written by: learn (only)'],
     reads: ['Read by: prep (only)'],
     skills: [],

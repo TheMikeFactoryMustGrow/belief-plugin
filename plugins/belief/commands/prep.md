@@ -11,7 +11,7 @@ Generate the Facilitator's Playbook — a comprehensive facilitation preparation
 
 ## Trigger
 
-User runs `/belief prep` or asks to prepare for a BELIEF session, generate session questions, build a facilitation guide, or create a playbook for a client session.
+User runs `/BELIEF prep` or asks to prepare for a BELIEF session, generate session questions, build a facilitation guide, or create a playbook for a client session.
 
 ## Inputs
 
@@ -24,12 +24,12 @@ User runs `/belief prep` or asks to prepare for a BELIEF session, generate sessi
 ## Prerequisites
 
 The playbook quality depends directly on the richness of the knowledge base. Ideal state:
-- `/belief analyze` has been run (document synthesis available)
-- `/belief research` has been run (market research available)
+- `/BELIEF analyze` has been run (document synthesis available)
+- `/BELIEF research` has been run (market research available)
 - Both have been run and the knowledge base is rich
 
 If neither has been run, warn the user:
-> "The knowledge base for [Client Name] is sparse — the playbook will be more generic. For best results, run `/belief analyze` and `/belief research` first."
+> "The knowledge base for [Client Name] is sparse — the playbook will be more generic. For best results, run `/BELIEF analyze` and `/BELIEF research` first."
 
 Proceed anyway if the user wants to — a generic playbook from the framework alone is still valuable.
 
@@ -187,7 +187,7 @@ Use `mcp__google-workspace__create_doc` to create the doc.
 ### Step 8: Update the Knowledge Base
 
 Note in the knowledge base that the playbook was generated:
-- Update "Last Updated" field: `[today's date] by /belief prep`
+- Update "Last Updated" field: `[today's date] by /BELIEF prep`
 - Note any new questions or angles that emerged during playbook generation
 
 ## Output
@@ -229,4 +229,4 @@ After the summary, ask:
 > - Review the full playbook in detail?
 > - Refine questions for a specific session stage?
 > - Add facilitator-specific notes or concerns to the playbook?
-> - Run `/belief analyze` to incorporate any new materials before the session?"
+> - Run `/BELIEF analyze` to incorporate any new materials before the session?"

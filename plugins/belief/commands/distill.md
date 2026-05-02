@@ -11,7 +11,7 @@ Generate candidate brand essence statements and a brand foundation draft from al
 
 ## Trigger
 
-User runs `/belief distill` or asks to draft brand statements, generate brand foundation, distill the brand essence, or create the "3 statements."
+User runs `/BELIEF distill` or asks to draft brand statements, generate brand foundation, distill the brand essence, or create the "3 statements."
 
 ## Inputs
 
@@ -23,7 +23,7 @@ User runs `/belief distill` or asks to draft brand statements, generate brand fo
 
 ## Prerequisites
 
-Best results require `/belief synthesize` to have been run (session insights available). The distillation can run with only pre-session data, but the output will be weaker. Warn the user if session insights are missing.
+Best results require `/BELIEF synthesize` to have been run (session insights available). The distillation can run with only pre-session data, but the output will be weaker. Warn the user if session insights are missing.
 
 ## Distillation Process
 
@@ -91,7 +91,7 @@ Also update the Brand Foundation Draft section in the knowledge base with the re
 ### Step 6: Update the Knowledge Base
 
 - Populate the Brand Foundation Draft section with the recommended essence statements
-- Update "Last Updated" field: `[today's date] by /belief distill`
+- Update "Last Updated" field: `[today's date] by /BELIEF distill`
 
 ## Output
 
@@ -130,4 +130,4 @@ After the summary, ask:
 > - Review all [N] options in detail?
 > - Refine the recommended option based on team feedback?
 > - Explore a different angle for the brand essence?
-> - Run `/belief learn` to capture what worked in this engagement?"
+> - Run `/BELIEF learn` to capture what worked in this engagement?"

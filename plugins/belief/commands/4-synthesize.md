@@ -39,7 +39,7 @@ Search the client's BELIEF folder for session outputs:
 - **Any debrief notes** — team members may have added post-session reflections
 - **Manual notes** — any docs added after the session date
 
-Read all text-based session materials using `mcp__google-workspace__get_doc_as_markdown`.
+Read all text-based session materials using `mcp__google_work__get_doc_as_markdown`.
 
 ### Step 3: Extract Session Content
 

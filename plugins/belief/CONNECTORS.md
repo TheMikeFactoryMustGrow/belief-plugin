@@ -4,7 +4,7 @@
 
 Plugin files use `~~category` as a placeholder for whatever tool the user connects in that category. For example, `~~cloud storage` might mean Google Drive, Dropbox, or any other storage platform with an MCP server.
 
-This plugin primarily uses the **Google Workspace MCP server**, which is expected to be configured globally (not in this plugin's `.mcp.json`). The `mcp__google-workspace__*` tools provide access to Google Drive, Docs, Sheets, and Slides.
+This plugin primarily uses the **Google Workspace MCP server**, which is expected to be configured globally (not in this plugin's `.mcp.json`). The `mcp__google_work__*` tools provide access to Google Drive, Docs, Sheets, and Slides.
 
 ## Connectors for this plugin
 

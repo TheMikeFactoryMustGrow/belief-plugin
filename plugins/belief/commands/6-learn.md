@@ -85,7 +85,7 @@ Update it with new learnings:
 - Add to Process Improvements section
 - Add a row to the Engagement Log table
 
-Use `mcp__google-workspace__modify_doc_text` for targeted updates.
+Use `mcp__google_work__modify_doc_text` for targeted updates.
 
 ### Step 5: Close the Engagement
 

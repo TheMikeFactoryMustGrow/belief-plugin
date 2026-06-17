@@ -21,11 +21,11 @@ User runs `/belief:status` or asks to see all BELIEF engagements, check on proje
 
 ### Step 1: Find All Knowledge Bases
 
-Search the WE Marketing shared drive for all files named `BELIEF Knowledge Base — *` using `mcp__google-workspace__search_drive_files`.
+Search the WE Marketing shared drive for all files named `BELIEF Knowledge Base — *` using `mcp__google_work__search_drive_files`.
 
 ### Step 2: Read Each Knowledge Base
 
-For each knowledge base found, read using `mcp__google-workspace__get_doc_as_markdown` and extract:
+For each knowledge base found, read using `mcp__google_work__get_doc_as_markdown` and extract:
 - Client name (from title)
 - Engagement mode
 - Session date

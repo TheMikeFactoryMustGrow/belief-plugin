@@ -182,7 +182,7 @@ Create a Google Doc in the client's BELIEF folder:
 - Use the structure defined above
 - Format for scannability — facilitators read this during the session, not as a study document
 
-Use `mcp__google-workspace__create_doc` to create the doc.
+Use `mcp__google_work__create_doc` to create the doc.
 
 ### Step 8: Update the Knowledge Base
 

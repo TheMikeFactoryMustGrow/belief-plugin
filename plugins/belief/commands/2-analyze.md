@@ -23,14 +23,14 @@ User runs `/belief:2-analyze` or asks to review client materials, ingest documen
 
 ### Step 1: Read the Knowledge Base
 
-- Find the client's knowledge base doc (`BELIEF Knowledge Base — [Client Name]`) using `mcp__google-workspace__search_drive_files`
-- Read the full content using `mcp__google-workspace__get_doc_as_markdown`
+- Find the client's knowledge base doc (`BELIEF Knowledge Base — [Client Name]`) using `mcp__google_work__search_drive_files`
+- Read the full content using `mcp__google_work__get_doc_as_markdown`
 - Extract the Engagement Config (mode, contacts) and Document Inventory (what's already been ingested)
 - If no knowledge base exists, prompt the user to run `/belief:1-intake` first
 
 ### Step 2: Inventory the BELIEF Folder
 
-- List all files in the client's `BELIEF/` folder using `mcp__google-workspace__list_drive_items`
+- List all files in the client's `BELIEF/` folder using `mcp__google_work__list_drive_items`
 - Also check the parent client folder for BELIEF-related files that may not have been moved into the subfolder
 - Compare the current file list against the Document Inventory in the knowledge base
 - Identify new files (not yet in the inventory) and potentially changed files
@@ -49,11 +49,11 @@ Skip these system files (don't analyze them):
 
 For each new or changed document:
 
-**Google Docs** (`.gdoc`): Read using `mcp__google-workspace__get_doc_as_markdown`
+**Google Docs** (`.gdoc`): Read using `mcp__google_work__get_doc_as_markdown`
 
-**Google Slides** (`.gslides`): Read using `mcp__google-workspace__get_drive_file_content` — focus on text content and speaker notes
+**Google Slides** (`.gslides`): Read using `mcp__google_work__get_drive_file_content` — focus on text content and speaker notes
 
-**Google Sheets** (`.gsheet`): Read using `mcp__google-workspace__get_drive_file_content` — look for data tables and key metrics
+**Google Sheets** (`.gsheet`): Read using `mcp__google_work__get_drive_file_content` — look for data tables and key metrics
 
 **PDFs and DOCX**: Check the local Google Drive mount at `~/Library/CloudStorage/GoogleDrive-mike@wassonenterprise.com/`. Read using local file access. If the file is not accessible locally, note it as a gap and tell the user.
 
@@ -97,7 +97,7 @@ Update the knowledge base doc:
 2. Update the Synthesized Understanding sections with merged content
 3. Update the "Last Updated" field: `[today's date] by /belief:2-analyze`
 
-Use `mcp__google-workspace__modify_doc_text` for targeted updates.
+Use `mcp__google_work__modify_doc_text` for targeted updates.
 
 ## Output
 

@@ -37,15 +37,15 @@ Gather the following from the user:
 ### Step 1: Locate or Create Client Folder
 
 Search the WE Marketing shared drive for an existing client folder:
-- Use `mcp__google-workspace__search_drive_files` to find `Clients/[Client Name]` on the shared drive
+- Use `mcp__google_work__search_drive_files` to find `Clients/[Client Name]` on the shared drive
 - If found, confirm with the user that this is the correct folder
-- If not found, create it using `mcp__google-workspace__create_drive_folder` under the `Clients/` folder
+- If not found, create it using `mcp__google_work__create_drive_folder` under the `Clients/` folder
 
 ### Step 2: Create BELIEF Subfolder
 
 - Check if a `BELIEF/` subfolder already exists in the client folder
 - If it exists and contains a knowledge base doc, warn the user that an engagement already exists and ask whether to continue (which will reset the KB) or abort
-- If it doesn't exist, create it using `mcp__google-workspace__create_drive_folder`
+- If it doesn't exist, create it using `mcp__google_work__create_drive_folder`
 
 ### Step 3: Copy Templates
 
@@ -54,11 +54,11 @@ Copy the two templates from the `WE BELIEF/` folder on the shared drive into the
 1. **BELIEF Session Template Slides** — copy and rename to `[Client Name] BELIEF Session.gslides`
 2. **WE Discovery Homework Template** — copy and rename to `WE Discovery Homework — [Client Name].gdoc`
 
-Use `mcp__google-workspace__search_drive_files` to find the templates, then `mcp__google-workspace__copy_drive_file` to copy them.
+Use `mcp__google_work__search_drive_files` to find the templates, then `mcp__google_work__copy_drive_file` to copy them.
 
 ### Step 4: Create Knowledge Base
 
-Create the knowledge base Google Doc using `mcp__google-workspace__create_doc`:
+Create the knowledge base Google Doc using `mcp__google_work__create_doc`:
 - Title: `BELIEF Knowledge Base — [Client Name]`
 - Location: the client's `BELIEF/` folder
 - Content: populated with the schema from the knowledge-base skill, with Engagement Config filled in from the user's inputs and all other sections containing their placeholder structure

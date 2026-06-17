@@ -258,21 +258,21 @@ The plugin's `/belief:2-analyze` and `/belief:3-prep` commands should produce ou
 
 ### Reading the Knowledge Base
 
-1. Use `mcp__google-workspace__search_drive_files` to find the knowledge base doc by name
-2. Use `mcp__google-workspace__get_doc_as_markdown` to read the full content
+1. Use `mcp__google_work__search_drive_files` to find the knowledge base doc by name
+2. Use `mcp__google_work__get_doc_as_markdown` to read the full content
 3. Parse the structured sections to extract what you need
 
 ### Updating the Knowledge Base
 
 1. Read the current state first — never overwrite without reading
-2. Use `mcp__google-workspace__modify_doc_text` for targeted section updates
+2. Use `mcp__google_work__modify_doc_text` for targeted section updates
 3. Update the "Last Updated" field in Engagement Config with the current date and command name
 4. For the Document Inventory table, append new rows — never remove existing ones
 5. For synthesis sections (What We Know, Themes, etc.), merge new insights with existing ones — don't replace
 
 ### Creating a New Knowledge Base
 
-1. Use `mcp__google-workspace__create_doc` with the client name in the title
+1. Use `mcp__google_work__create_doc` with the client name in the title
 2. Populate the Engagement Config section with intake data
 3. Leave other sections with their placeholder text — they get populated by subsequent commands
 

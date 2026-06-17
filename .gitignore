@@ -2,3 +2,6 @@
 *.swp
 *.swo
 *~
+
+# Per-machine Claude Code overrides (GitButler hooks etc.)
+.claude/settings.local.json

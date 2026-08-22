@@ -7,6 +7,16 @@ description: Framework for conducting the 7-area WE Marketing Research for BELIE
 
 Frameworks and guidance for conducting the seven research areas that inform BELIEF brand discovery sessions. This research runs independently of client-provided materials (the T-3 parallel track) and should be started as early as possible.
 
+## Required Inputs
+
+Confirm these before you start:
+
+- **Client name and website** — the anchor for all seven areas
+- **Engagement mode** — new-brand / rebrand-tweak / rebrand-pivot; it drives the emphasis shifts below. If the mode is unknown, ask.
+- **Client homework materials** — if they are missing, proceed on public sources and flag the gap in each affected area's output
+
+This research requires web search access.
+
 ## The Seven Research Areas
 
 ### 1. Company Overview
@@ -184,3 +194,19 @@ Flag any findings that contradict the client's homework or self-description — 
 - When web search returns limited results, note the gap rather than inventing findings
 - Cross-reference findings across multiple sources when possible
 - Prioritize recency — information from the last 12 months is most valuable
+
+## Deliverable
+
+Write the seven-area report to the engagement folder as `research/we-marketing-research-YYYY-MM-DD.md`, one section per area in the Output Standards format above.
+
+Close by:
+
+- Linking the report file
+- Listing the high-confidence findings
+- Calling out contradictions flagged for the Facilitator's Playbook
+
+## Approval Gates
+
+- **Autonomous:** all seven research areas — public-source research, synthesis, and writing the report to the engagement folder need no sign-off.
+- **Ask first:** paying for reports or data sources; sharing findings outside the engagement folder.
+- **Never:** contact the client, competitors, or customers directly.

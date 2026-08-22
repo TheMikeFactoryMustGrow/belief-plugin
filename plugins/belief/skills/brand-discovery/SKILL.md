@@ -23,6 +23,17 @@ Every step in BELIEF is governed by three hard constraints. If you violate any o
 
 3. **Synthesis requires decision-making authority in the room.** The live session produces real-time strategic decisions. If the person who can say "yes, that's us" isn't present, the session produces recommendations instead of decisions, and the timeline doubles.
 
+## Required Inputs
+
+Confirm these inputs are on hand before you facilitate a session or distill its output:
+
+- **Engagement mode** — new-brand, rebrand-tweak, or rebrand-pivot (see Engagement Mode Differences)
+- **Client homework** — the pre-session materials the client completed
+- **WE research** — the research behind the SWOT starter and the competitive landscape
+- **Session raw material** — notes, recordings, and whiteboards (required for distillation)
+
+If any input is missing, stop and ask Mike for it. Never fabricate client inputs.
+
 ## The Live Session: Four Stages
 
 ### Stage 1: WE DISCOVERY (60-75 minutes)
@@ -221,3 +232,29 @@ The ultimate output of BELIEF is distillation: taking a half-day of rich, comple
 - Aspirational statements disconnected from reality (the team wouldn't believe them)
 - Committee-written statements that try to include everything and say nothing
 - Clever wordplay that sounds good but means nothing
+
+## Deliverable
+
+The output is a WE Brand Overview draft — Purpose through Reasons to Believe, per the definitions table — plus a summary of the decisions made in each session stage. Write both to the engagement's folder in the vault.
+
+Close by giving Mike:
+- The file path
+- Which statements passed the Three Questions
+- Which statements remain open
+
+## Before You Declare Done
+
+Run this acceptance check on every BELIEF output:
+
+1. Every foundation element uses the definitions from the Brand Foundation Elements table.
+2. Each statement passes the Three Questions: it is true, it is unique to them, they would fight for it.
+3. No pitfall pattern appears — generic, aspirational-only, committee-speak, or empty wordplay.
+4. Every stage decision is documented with an owner.
+
+Fix each failure before you hand anything back.
+
+## Approval Gates
+
+- **Autonomous:** Draft candidate statements, SWOT starters, and session materials.
+- **Ask first:** Present candidate statements as one batched decision round (approve / reject / discuss) before they enter the Brand Overview.
+- **Never:** Send anything to the client, lock brand foundation language, or commit a timeline without Mike's sign-off.

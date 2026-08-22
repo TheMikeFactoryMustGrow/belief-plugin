@@ -289,6 +289,31 @@ The knowledge base is designed for incremental enrichment:
 
 Each command should check what already exists and merge rather than overwrite. If a section already has content from a previous run, integrate new findings with existing ones and note what changed.
 
+### Verify Before You Declare Done
+
+After any KB write, re-read the doc with `mcp__google_work__get_doc_as_markdown` and confirm each check:
+
+1. The "Last Updated" field carries today's date and the command name.
+2. Every pre-existing Document Inventory row is still present — the table only gained rows.
+3. Prior synthesis content survives — new insights are merged with the old, not written over them.
+
+Fix any failed check before you declare the update done.
+
+### Closing an Operation
+
+Close every KB operation by returning:
+
+- The doc link.
+- A change summary: which sections were created or updated, and which inventory rows were appended.
+- Any gaps or contradictions flagged for the team.
+- The deliverable doc, named explicitly — knowledge base, playbook, or brand foundation draft.
+
+## Approval Gates
+
+- **Autonomous:** reads, routine section merges, Document Inventory appends, and "Last Updated" bumps.
+- **Ask first:** creating a new client folder or knowledge base, replacing or deleting existing synthesis content, writing to the cross-client learnings doc, and sharing any doc outside the WE Marketing drive.
+- **Never:** resolve conflicting section content on your own — ask which version wins before you write.
+
 ## Google Drive Conventions
 
 ### Folder Structure

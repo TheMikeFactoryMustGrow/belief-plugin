@@ -7,6 +7,24 @@ description: Socratic questioning framework for BELIEF facilitation — question
 
 Frameworks for generating the three types of facilitator preparation materials — question trees, insight triggers, and context cards — that arm the BELIEF facilitation team with world-class preparation.
 
+## Required Inputs
+
+Confirm three inputs before you generate any materials:
+
+1. The research synthesis — the contradictions, say-do gaps, and competitive findings
+2. The client homework and documents
+3. The engagement mode — new-brand, rebrand-tweak, or rebrand-pivot
+
+If any input is missing, ask the calling agent or the user for it. Never invent a tension without research evidence.
+
+## Workflow
+
+1. Read the research synthesis. List every tension it contains.
+2. Draft insight triggers from those tensions.
+3. Write primary questions for each session stage. Build a question tree for each primary question.
+4. Write a context card for every trigger and every primary question.
+5. Assemble the playbook stage by stage, per Playbook Assembly below.
+
 ## Three Types of Preparation Materials
 
 ### 1. Question Trees
@@ -187,3 +205,22 @@ For each stage, include:
 - 2-3 insight triggers (with context cards)
 - A "what to listen for" summary
 - A "wildcards" section for unexpected threads
+
+## Deliverable
+
+Return the Facilitator's Playbook as a Google Doc named `Facilitator's Playbook — [Client Name]`, created with `mcp__google_work__create_doc` in the client's `BELIEF/` folder on the WE Marketing shared drive (the `/belief:3-prep` convention), organized by session stage. In the closing message, give the doc link, the engagement mode used, and the question and trigger counts per stage.
+
+## Before You Deliver
+
+Check every item before you declare the playbook done. Fix any miss before handoff.
+
+- Every question tree is 3 levels deep or less and includes a deflection-recovery path.
+- Every insight trigger cites research evidence and includes a plan for the unexpected response.
+- Every context card lists LISTEN FOR signals and a mapping to positioning directions.
+- Each stage has 3-5 primary questions, 2-3 insight triggers, a listen-for summary, and a wildcards section.
+
+## Approval Gates
+
+- **Autonomous:** Generate all preparation materials — question trees, insight triggers, context cards, and the assembled playbook.
+- **Ask first:** Get the user's explicit sign-off before you share any material client-facing or commit it to the engagement repo. Flag any insight trigger built on a sensitive internal disagreement for facilitator approval.
+- **Never:** Never put a sensitive-disagreement trigger into the playbook without that facilitator approval.

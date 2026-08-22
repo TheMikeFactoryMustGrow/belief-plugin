@@ -235,10 +235,10 @@ The ultimate output of BELIEF is distillation: taking a half-day of rich, comple
 
 ## Deliverable
 
-The output is a WE Brand Overview draft — Purpose through Reasons to Believe, per the definitions table — plus a summary of the decisions made in each session stage. Write both to the engagement's folder in the vault.
+The output is a WE Brand Overview draft — Purpose through Reasons to Believe, per the definitions table — plus a summary of the decisions made in each session stage. Write both into the Google Doc named `Brand Foundation Draft — [Client Name]` in the client's `BELIEF/` folder on the WE Marketing shared drive (the `/belief:5-distill` convention).
 
 Close by giving Mike:
-- The file path
+- The doc link
 - Which statements passed the Three Questions
 - Which statements remain open
 

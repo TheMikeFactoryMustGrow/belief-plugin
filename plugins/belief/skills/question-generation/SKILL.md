@@ -208,7 +208,7 @@ For each stage, include:
 
 ## Deliverable
 
-Return the Facilitator's Playbook as one markdown file at the engagement's output path (for example `outputs/{client}/facilitators-playbook.md`), organized by session stage. In the closing message, name the file path, the engagement mode used, and the question and trigger counts per stage.
+Return the Facilitator's Playbook as a Google Doc named `Facilitator's Playbook — [Client Name]`, created with `mcp__google_work__create_doc` in the client's `BELIEF/` folder on the WE Marketing shared drive (the `/belief:3-prep` convention), organized by session stage. In the closing message, give the doc link, the engagement mode used, and the question and trigger counts per stage.
 
 ## Before You Deliver
 

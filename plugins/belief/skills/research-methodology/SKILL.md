@@ -197,11 +197,11 @@ Flag any findings that contradict the client's homework or self-description — 
 
 ## Deliverable
 
-Write the seven-area report to the engagement folder as `research/we-marketing-research-YYYY-MM-DD.md`, one section per area in the Output Standards format above.
+Write the seven-area findings into the **Research Findings** section of the client's knowledge base Google Doc (`BELIEF Knowledge Base — [Client Name]`, in the client's `BELIEF/` folder on the WE Marketing shared drive), one section per area in the Output Standards format above. Merge with existing findings from a previous run; do not replace them. Update the doc's "Last Updated" field. There is no local report file — the knowledge base doc is the deliverable that `/belief:3-prep` reads.
 
 Close by:
 
-- Linking the report file
+- Linking the knowledge base doc
 - Listing the high-confidence findings
 - Calling out contradictions flagged for the Facilitator's Playbook
 
